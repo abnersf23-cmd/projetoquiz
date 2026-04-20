@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RENBA Quiz</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="arena-glow arena-glow-left"></div>
+    <div class="arena-glow arena-glow-right"></div>
+
+    <main class="app-card">
+      <section class="hero-panel" id="welcome-screen">
+        <div class="badge">Quiz de Futebol Brasileiro</div>
+        <h1>RENBA</h1>
+        <p class="hero-text">
+          Um quiz rápido e visual para testar seus conhecimentos sobre futebol brasileiro em 10 perguntas.
+        </p>
+
+        <form id="intro-form" class="intro-form">
+          <label class="field">
+            <span>Seu nome</span>
+            <input id="player-name" name="player-name" type="text" placeholder="Digite seu nome" maxlength="30" required>
+          </label>
+
+          <label class="field">
+            <span>De 0 a 10, como você avalia seu conhecimento?</span>
+            <input id="player-level" name="player-level" type="number" min="0" max="10" placeholder="Ex: 7" required>
+          </label>
+
+          <button type="submit" class="primary-button">Começar o quiz</button>
+        </form>
+      </section>
+
+      <section class="quiz-panel hidden" id="quiz-screen">
+        <div class="topbar">
+          <div>
+            <p class="topbar-label">Jogador</p>
+            <strong id="player-display">-</strong>
+          </div>
+          <div>
+            <p class="topbar-label">Pontuação</p>
+            <strong><span id="score-display">0</span>/<span id="total-display">0</span></strong>
+          </div>
+          <div>
+            <p class="topbar-label">Pergunta</p>
+            <strong><span id="question-number">1</span>/<span id="question-count">0</span></strong>
+          </div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-bar" id="progress-bar"></div>
+        </div>
+
+        <article class="question-card">
+          <p class="question-tag">Rodada atual</p>
+          <h2 id="question-text"></h2>
+          <p class="helper-text">Responda da forma que achar melhor. O sistema aceita algumas variações e remove acentos automaticamente.</p>
+
+          <form id="answer-form" class="answer-form">
+            <input id="answer-input" type="text" placeholder="Sua resposta" autocomplete="off" required>
+            <button type="submit" class="primary-button">Responder</button>
+          </form>
+
+          <div id="feedback-box" class="feedback-box hidden"></div>
+        </article>
+      </section>
+
+      <section class="result-panel hidden" id="result-screen">
+        <p class="result-tag">Fim de jogo</p>
+        <h2 id="result-title"></h2>
+        <p id="result-summary" class="result-summary"></p>
+        <button id="restart-button" class="secondary-button" type="button">Jogar novamente</button>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
